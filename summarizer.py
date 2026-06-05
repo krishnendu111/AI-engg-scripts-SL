@@ -1,10 +1,8 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 from scraper import fetch_website_contents
-from scraper import fetch_website_contents
 
-load_dotenv()          # <-- this reads your .env file
-client = OpenAI()
+load_dotenv()
 client = OpenAI()
 
 system_prompt = """You analyze the contents of a website and
@@ -16,8 +14,8 @@ def summarize(url):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
-            {"role":"system", "content": system_prompt},
-            {"role":"user",   "content": f"Summarize this website:\n\n{website}"},
+            {"role": "system", "content": system_prompt},
+            {"role": "user",   "content": f"Summarize this website:\n\n{website}"},
         ],
     )
     return response.choices[0].message.content
