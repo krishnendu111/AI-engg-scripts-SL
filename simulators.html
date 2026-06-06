@@ -149,6 +149,7 @@ footer span{color:#9a8a78}
     <a href="#tokenizer">🔤 Tokenizer</a>
     <a href="#temperature">🌡️ Temperature</a>
     <a href="#apikey">🔑 API Key</a>
+    <a href="#apiroundtrip">📤 API Round-trip</a>
     <a href="#selfsup">🪄 Self-Supervision</a>
     <a href="#summarizer">🔎 Summarizer</a>
   </div>
@@ -160,7 +161,7 @@ footer span{color:#9a8a78}
 <div class="wrap" id="tokenizer">
   <div class="sim-card">
     <div class="sim-card-head">
-      <div class="sim-label">🔤 Simulator 1 of 5</div>
+      <div class="sim-label">🔤 Simulator 1 of 6</div>
       <h2>Tokenizer playground</h2>
       <p>LLMs don't read words — they read <strong>tokens</strong> (chunks roughly ¾ of a word). Type anything and watch it split. This is also how your API bill is calculated.</p>
     </div>
@@ -197,7 +198,7 @@ footer span{color:#9a8a78}
 <div class="wrap" id="temperature">
   <div class="sim-card">
     <div class="sim-card-head">
-      <div class="sim-label">🌡️ Simulator 2 of 5</div>
+      <div class="sim-label">🌡️ Simulator 2 of 6</div>
       <h2>Next-token &amp; <em>temperature</em></h2>
       <p>Given a prompt, the model scores every possible next token with a probability. <strong>Temperature</strong> reshapes those scores — low = focused and safe, high = creative and surprising. Drag the slider and see the probabilities shift.</p>
     </div>
@@ -233,7 +234,7 @@ footer span{color:#9a8a78}
 <div class="wrap" id="apikey">
   <div class="sim-card">
     <div class="sim-card-head">
-      <div class="sim-label">🔑 Simulator 3 of 5</div>
+      <div class="sim-label">🔑 Simulator 3 of 6</div>
       <h2>Getting your <em>API key</em></h2>
       <p>An API key is a secret password that lets your code use OpenAI's models. You pay only for what you use — cents for this class. Click through the flow:</p>
     </div>
@@ -262,12 +263,54 @@ footer span{color:#9a8a78}
 </div>
 
 <!-- ═══════════════════════════════════════════════
-     SIM 4 — SELF-SUPERVISION (fill in the blank)
+     SIM 4 — API ROUND-TRIP
+════════════════════════════════════════════════ -->
+<div class="wrap" id="apiroundtrip">
+  <div class="sim-card">
+    <div class="sim-card-head">
+      <div class="sim-label">📤 Simulator 4 of 6</div>
+      <h2>Anatomy of one <em>API round-trip</em></h2>
+      <p>When your code calls an LLM, it sends a request to a server and waits for a response — just like fetching the weather, except the reply is intelligence. Press send and watch the journey:</p>
+    </div>
+    <div class="sim" style="margin:0 24px 24px">
+      <div class="sim-head">
+        <div class="t"><span class="live">Live</span> Anatomy of one API round-trip</div>
+        <div class="hint">press send → watch it travel</div>
+      </div>
+      <div class="sim-body">
+        <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;text-align:center">
+          <div style="background:var(--blue-tint);border:1px solid #b8c8ee;border-radius:12px;padding:24px 16px">
+            <div style="font-size:32px">🧑‍💻</div>
+            <b style="font-size:13px">Your app</b>
+            <div id="apiReq" style="font-family:'JetBrains Mono';font-size:11px;color:var(--blue);margin-top:8px;min-height:30px"></div>
+          </div>
+          <div id="apiArrow" style="font-size:28px;color:var(--orange);transition:.3s;padding:0 8px">➜</div>
+          <div style="background:var(--orange-tint);border:1px solid #ffd2c5;border-radius:12px;padding:24px 16px">
+            <div style="font-size:32px" id="apiBrain">🧠</div>
+            <b style="font-size:13px">LLM model</b>
+            <div id="apiResp" style="font-family:'JetBrains Mono';font-size:11px;color:var(--orange-deep);margin-top:8px;min-height:30px"></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:20px">
+          <button class="btn" id="apiBtn">📤 Send the request</button>
+        </div>
+        <div id="apiResult" style="margin-top:16px;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:14px;display:none"></div>
+        <div class="note" style="margin-top:18px">
+          <div class="ico">💡</div>
+          <div><b>The golden rule</b><p>Never paste your API key into code — it's a password to your wallet. Keep it in a <code>.env</code> file on the server side only.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     SIM 5 — SELF-SUPERVISION (fill in the blank)
 ════════════════════════════════════════════════ -->
 <div class="wrap" id="selfsup">
   <div class="sim-card">
     <div class="sim-card-head">
-      <div class="sim-label">🪄 Simulator 4 of 5</div>
+      <div class="sim-label">🪄 Simulator 5 of 6</div>
       <h2>Self-supervision: <em>fill in the blank</em></h2>
       <p>This is how GPT learned — billions of times. A word is hidden; the model guesses. The answer is already in the text, so the internet becomes its own teacher. Try being the model:</p>
     </div>
@@ -293,7 +336,7 @@ footer span{color:#9a8a78}
 <div class="wrap" id="summarizer">
   <div class="sim-card">
     <div class="sim-card-head">
-      <div class="sim-label">🔎 Simulator 5 of 5</div>
+      <div class="sim-label">🔎 Simulator 6 of 6</div>
       <h2>AI Website Summarizer — <em>live demo</em></h2>
       <p>This is the app you built today. Pick a sample site (or paste your own text), choose a personality, and hit Summarize. Notice how changing the personality prompt completely changes the output — that's prompt engineering.</p>
     </div>
@@ -411,7 +454,25 @@ footer span{color:#9a8a78}
   });
 })();
 
-/* ── 4. SELF-SUPERVISION (fill in the blank) ───────────── */
+/* ── 4. API ROUND-TRIP ─────────────────────────────────── */
+(function(){
+  const btn=document.getElementById('apiBtn'),ar=document.getElementById('apiArrow');
+  const rq=document.getElementById('apiReq'),rs=document.getElementById('apiResp');
+  const br=document.getElementById('apiBrain'),res=document.getElementById('apiResult');
+  btn.addEventListener('click',()=>{
+    btn.disabled=true;rq.textContent='';rs.textContent='';res.style.display='none';
+    rq.textContent='{ "Bangalore?" }';ar.style.transform='translateX(6px)';
+    setTimeout(()=>{ar.style.transform='';br.textContent='🤔';rs.textContent='thinking…';},600);
+    setTimeout(()=>{
+      br.textContent='🧠';rs.textContent='200 OK';ar.textContent='⬅';
+      res.style.display='block';
+      res.innerHTML='<b>Response:</b> "Sip filter coffee on an MTR rooftop and watch the city wake up — Bangalore\'s best 10-minute holiday. ☕"';
+      btn.disabled=false;ar.textContent='➜';
+    },1500);
+  });
+})();
+
+/* ── 5. SELF-SUPERVISION (fill in the blank) ───────────── */
 (function(){
   const blank=document.getElementById('maskBlank'),box=document.getElementById('maskGuesses'),msg=document.getElementById('maskMsg');
   const opts=[{w:'coffee',ok:true},{w:'bicycle',ok:false},{w:'tea',ok:'close'},{w:'sadness',ok:false}];
