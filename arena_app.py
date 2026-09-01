@@ -5,6 +5,35 @@ from openai import OpenAI
 from dotenv import load_dotenv
 load_dotenv()
 
+from groq import Groq
+
+
+""" groq_client = Groq()
+completion = groq_client.chat.completions.create(
+    model="openai/gpt-oss-120b",
+    messages=[
+      {
+        "role": "user",
+        "content": "hello how are you \n"
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! I'm doing great, thanks for asking. How can I help you today?"
+      },
+      {
+        "role": "user",
+        "content": ""
+      }
+    ],
+    temperature=1,
+    max_completion_tokens=2048,
+    top_p=1,
+    reasoning_effort="medium",
+    stream=True,
+    stop=None
+) """
+
+
 openai_client = OpenAI()                                  # uses OPENAI_API_KEY
 groq_client   = OpenAI(api_key=os.getenv("GROQ_API_KEY"),
                             base_url="https://api.groq.com/openai/v1")
@@ -16,7 +45,7 @@ def ask(client, model, prompt):
 
 def battle(prompt):
     a = ask(openai_client, "gpt-4o-mini", prompt)
-    b = ask(groq_client, "llama-3.3-70b-versatile", prompt)
+    b = ask(groq_client, "openai/gpt-oss-120b", prompt)
     return a, b
 
 def vote(label):
